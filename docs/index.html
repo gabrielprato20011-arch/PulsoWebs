@@ -368,7 +368,9 @@ footer{
 }
 .qcard:hover{border-color:var(--border-hover);background:var(--surface2);transform:translateY(-3px)}
 .qcard.selected{border-color:var(--gold);background:rgba(200,147,12,.08)}
-.qcard-icon{font-size:2.2rem;margin-bottom:1rem;display:block}
+.qcard-icon{margin-bottom:1rem;display:flex;align-items:center;justify-content:center;height:32px;color:var(--mist);transition:color .3s}
+.qcard-icon svg{width:28px;height:28px;flex-shrink:0}
+.qcard.selected .qcard-icon{color:var(--pulse)}
 .qcard-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
 .qcard-desc{font-size:.82rem;color:var(--mist);line-height:1.6}
 .quiz-nav{display:flex;align-items:center;gap:1rem;margin-top:3rem}
@@ -1758,23 +1760,20 @@ footer::before{
       <h2 class="quiz-q-title">¿Cuál describe mejor<br>tu negocio?</h2>
       <div class="quiz-cards">
         <div class="qcard" onclick="selectCard(this,'s1')" data-value="tienda">
-          <span class="qcard-icon">🛍</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></span>
           <p class="qcard-title">Tienda online</p>
           <p class="qcard-desc">Quiero vender productos físicos o digitales en internet</p>
         </div>
         <div class="qcard" onclick="selectCard(this,'s1')" data-value="servicios">
-          <span class="qcard-icon">💼</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12.01" y2="12"/><path d="M2 12h20"/></svg></span>
           <p class="qcard-title">Servicios profesionales</p>
           <p class="qcard-desc">Ofrezco servicios, consultoría o tengo una empresa</p>
         </div>
         <div class="qcard" onclick="selectCard(this,'s1')" data-value="portfolio">
-          <span class="qcard-icon">✦</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
           <p class="qcard-title">Portfolio personal</p>
           <p class="qcard-desc">Quiero mostrar mi trabajo y atraer clientes o empleadores</p>
         </div>
-      </div>
-      <div class="quiz-nav">
-        <button class="btn-next" id="next-1" onclick="goToStep(2)">Continuar →</button>
       </div>
     </div>
 
@@ -1785,7 +1784,6 @@ footer::before{
       <div class="quiz-cards" id="step2-cards"></div>
       <div class="quiz-nav">
         <button class="btn-back" onclick="goToStep(1)">← Volver</button>
-        <button class="btn-next" id="next-2" onclick="goToStep(3)">Continuar →</button>
       </div>
     </div>
 
@@ -1795,24 +1793,23 @@ footer::before{
       <h2 class="quiz-q-title">¿Cómo quieres que<br>luzca tu web?</h2>
       <div class="quiz-cards">
         <div class="qcard" onclick="selectCard(this,'s3')" data-value="minimalista">
-          <span class="qcard-icon">◻</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></span>
           <p class="qcard-title">Moderno y minimalista</p>
           <p class="qcard-desc">Limpio, espacioso, elegante. Menos es más</p>
         </div>
         <div class="qcard" onclick="selectCard(this,'s3')" data-value="dinamico">
-          <span class="qcard-icon">⚡</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
           <p class="qcard-title">Colorido y dinámico</p>
           <p class="qcard-desc">Vibrante, con personalidad, llamativo y energético</p>
         </div>
         <div class="qcard" onclick="selectCard(this,'s3')" data-value="formal">
-          <span class="qcard-icon">◈</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 12 12 22 2 12"/></svg></span>
           <p class="qcard-title">Elegante y formal</p>
           <p class="qcard-desc">Sobrio, profesional, que transmite confianza y seriedad</p>
         </div>
       </div>
       <div class="quiz-nav">
         <button class="btn-back" onclick="goToStep(2)">← Volver</button>
-        <button class="btn-next" id="next-3" onclick="goToStep(4)">Continuar →</button>
       </div>
     </div>
 
@@ -1822,24 +1819,23 @@ footer::before{
       <h2 class="quiz-q-title">¿Cuál es tu rango<br>de inversión?</h2>
       <div class="quiz-cards">
         <div class="qcard" onclick="selectCard(this,'s4')" data-value="esencial">
-          <span class="qcard-icon">◇</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/></svg></span>
           <p class="qcard-title">Esencial · $400</p>
           <p class="qcard-desc">Hasta 5 páginas, diseño profesional, entrega en 7 días</p>
         </div>
         <div class="qcard" onclick="selectCard(this,'s4')" data-value="estandar">
-          <span class="qcard-icon">◆</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
           <p class="qcard-title">Estándar · $500</p>
           <p class="qcard-desc">Hasta 12 páginas, SEO, blog y funciones avanzadas</p>
         </div>
         <div class="qcard" onclick="selectCard(this,'s4')" data-value="premium">
-          <span class="qcard-icon">★</span>
+          <span class="qcard-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20L2 8l6 5 4-7 4 7 6-5-2 12"/></svg></span>
           <p class="qcard-title">Premium · $600</p>
           <p class="qcard-desc">Ilimitado, tienda online, panel de administración</p>
         </div>
       </div>
       <div class="quiz-nav">
         <button class="btn-back" onclick="goToStep(3)">← Volver</button>
-        <button class="btn-next" id="next-4" onclick="goToStep(5)">Continuar →</button>
       </div>
     </div>
 
@@ -1919,21 +1915,32 @@ window.addEventListener('scroll',()=>{
 
 /* ── QUIZ STATE ────────────────────────────────────────── */
 const answers={s1:'',s2:'',s3:'',s4:''};
+const SVG={
+  cart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>',
+  card:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+  file:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+  msg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>',
+  image:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+  user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>',
+};
 const step2Options={
   tienda:[
-    {icon:'🛒',title:'Catálogo + carrito',desc:'Listado de productos y proceso de compra completo',val:'catalogo-carrito'},
-    {icon:'💳',title:'Pagos online',desc:'Integración con Stripe, PayPal o transferencia bancaria',val:'pagos-online'},
-    {icon:'📦',title:'Gestión de inventario',desc:'Control de stock, variantes y alertas de producto',val:'inventario'},
+    {icon:SVG.cart,title:'Catálogo + carrito',desc:'Listado de productos y proceso de compra completo',val:'catalogo-carrito'},
+    {icon:SVG.card,title:'Pagos online',desc:'Integración con Stripe, PayPal o transferencia bancaria',val:'pagos-online'},
+    {icon:SVG.box,title:'Gestión de inventario',desc:'Control de stock, variantes y alertas de producto',val:'inventario'},
   ],
   servicios:[
-    {icon:'📅',title:'Reservas y citas',desc:'Calendario online para que los clientes agenden directamente',val:'reservas-citas'},
-    {icon:'✍',title:'Blog y contenido',desc:'Sección de artículos para posicionar tu web en Google',val:'blog'},
-    {icon:'💬',title:'Chat y WhatsApp',desc:'Botón de WhatsApp y chat en vivo para consultas rápidas',val:'chat-whatsapp'},
+    {icon:SVG.calendar,title:'Reservas y citas',desc:'Calendario online para que los clientes agenden directamente',val:'reservas-citas'},
+    {icon:SVG.file,title:'Blog y contenido',desc:'Sección de artículos para posicionar tu web en Google',val:'blog'},
+    {icon:SVG.msg,title:'Chat y WhatsApp',desc:'Botón de WhatsApp y chat en vivo para consultas rápidas',val:'chat-whatsapp'},
   ],
   portfolio:[
-    {icon:'🖼',title:'Galería de proyectos',desc:'Muestra tu trabajo con filtros por categoría',val:'galeria'},
-    {icon:'👤',title:'Sección "Sobre mí"',desc:'Página personal con tu historia, habilidades y trayectoria',val:'sobre-mi'},
-    {icon:'📩',title:'Formulario de contacto',desc:'Para que potenciales clientes o empleadores te escriban',val:'contacto-portfolio'},
+    {icon:SVG.image,title:'Galería de proyectos',desc:'Muestra tu trabajo con filtros por categoría',val:'galeria'},
+    {icon:SVG.user,title:'Sección "Sobre mí"',desc:'Página personal con tu historia, habilidades y trayectoria',val:'sobre-mi'},
+    {icon:SVG.mail,title:'Formulario de contacto',desc:'Para que potenciales clientes o empleadores te escriban',val:'contacto-portfolio'},
   ],
 };
 
@@ -1946,6 +1953,7 @@ function buildStep2(tipo){
     d.dataset.value=opt.val;
     d.onclick=function(){selectCard(this,'s2')};
     d.innerHTML=`<span class="qcard-icon">${opt.icon}</span><p class="qcard-title">${opt.title}</p><p class="qcard-desc">${opt.desc}</p>`;
+    d.onclick=function(){selectCard(this,'s2')};
     container.appendChild(d);
   });
 }
@@ -1954,8 +1962,10 @@ function selectCard(el,group){
   el.closest('.quiz-cards').querySelectorAll('.qcard').forEach(c=>c.classList.remove('selected'));
   el.classList.add('selected');
   answers[group]=el.dataset.value;
-  const nextBtn=document.getElementById('next-'+group.replace('s',''));
+  const stepNum=parseInt(group.replace('s',''));
+  const nextBtn=document.getElementById('next-'+stepNum);
   if(nextBtn)nextBtn.classList.add('enabled');
+  setTimeout(()=>goToStep(stepNum+1),340);
 }
 
 let currentStep=1;
