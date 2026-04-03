@@ -68,7 +68,7 @@ nav.scrolled{background:rgba(237,224,208,.97);-webkit-backdrop-filter:blur(16px)
 .nav-cta{
   font-family:var(--font-body);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
   padding:.6rem 1.6rem;border:1px solid var(--gold);color:var(--gold);
-  background:transparent;cursor:none;border-radius:2px;
+  background:transparent;cursor:none;border-radius:30px;
   transition:background .25s,color .25s;
 }
 .nav-cta:hover{background:var(--gold);color:var(--ink)}
@@ -250,7 +250,7 @@ h1 em{font-style:normal;color:var(--pulse)}
 .plan-cta{
   width:100%;margin-top:2rem;padding:.85rem;background:transparent;border:1px solid var(--border);
   color:var(--ink);font-family:var(--font-body);font-size:.85rem;font-weight:500;letter-spacing:.06em;
-  cursor:none;border-radius:2px;transition:border-color .25s,background .25s,color .25s;
+  cursor:none;border-radius:30px;transition:border-color .25s,background .25s,color .25s;
 }
 .plan-cta:hover,.plan-card.plan-selected .plan-cta{border-color:var(--gold);background:var(--gold);color:var(--ink)}
 .plan-card.plan-selected{border-color:var(--gold-dim);box-shadow:0 0 0 1px var(--gold-dim),0 12px 40px rgba(184,134,11,.12)}
@@ -376,13 +376,13 @@ footer{
 .quiz-nav{display:flex;align-items:center;gap:1rem;margin-top:3rem}
 .btn-back{
   padding:.75rem 1.8rem;background:transparent;border:1px solid var(--border);
-  color:var(--mist);font-family:var(--font-body);font-size:.85rem;cursor:none;border-radius:2px;
+  color:var(--mist);font-family:var(--font-body);font-size:.85rem;cursor:none;border-radius:30px;
   transition:border-color .2s,color .2s;
 }
 .btn-back:hover{border-color:var(--border-hover);color:var(--ink)}
 .btn-next{
   padding:.75rem 2.2rem;background:var(--gold);color:var(--ink);
-  font-family:var(--font-body);font-size:.85rem;font-weight:500;  border:none;border-radius:2px;opacity:.4;pointer-events:none;
+  font-family:var(--font-body);font-size:.85rem;font-weight:500;  border:none;border-radius:30px;opacity:.4;pointer-events:none;
   transition:opacity .25s,transform .2s,box-shadow .2s;
 }
 .btn-next.enabled{opacity:1;pointer-events:all}
@@ -665,12 +665,6 @@ footer::before{
   footer{grid-template-columns:1fr;gap:2.5rem;text-align:center}
 }
 
-/* ── SCROLL PROGRESS BAR ──────────────────────────────────── */
-#scroll-progress{
-  position:fixed;top:0;left:0;height:2px;width:0%;z-index:1000;
-  background:linear-gradient(90deg,var(--gold),var(--gold-dim));
-  pointer-events:none;transition:width .08s linear;
-}
 
 /* ── DARK MODE ────────────────────────────────────────────── */
 [data-theme="dark"]{
@@ -957,7 +951,7 @@ footer::before{
 .mob-nav-cta{
   margin-top:.5rem;padding:.85rem 2.2rem;background:var(--gold);color:var(--ink);
   font-family:var(--font-body);font-size:.9rem;font-weight:500;letter-spacing:.06em;
-  border:none;border-radius:2px;
+  border:none;border-radius:30px;
   opacity:0;transform:translateY(12px);
   transition:opacity .35s var(--ease) .3s,transform .35s var(--ease) .3s,
              box-shadow .2s,filter .2s;
@@ -1009,9 +1003,6 @@ footer::before{
 </head>
 <body>
 
-<!-- SCROLL PROGRESS -->
-<div id="scroll-progress"></div>
-
 <!-- CURSOR -->
 <div class="cur cur-dot" id="cd"></div>
 <div class="cur cur-ring" id="cr"></div>
@@ -1055,8 +1046,8 @@ footer::before{
   <div class="hero-grid"></div>
   <div class="hero-content">
     <p class="hero-tag"><span class="hero-live"></span>Agencia activa · Est. 2024</p>
-    <h1>Webs que<br>venden solas.<br><em>PulsoWebs.</em></h1>
-    <p class="hero-sub">Somos el equipo detrás de marcas que crecen en digital. Diseño, estrategia y desarrollo para negocios que van en serio.</p>
+    <h1>Webs que<br>venden solas.<br><em><span style="color:var(--pulse)">Pulso</span><span style="color:#fff">Webs</span>.</em></h1>
+    <p class="hero-sub">Diseño, estrategia y desarrollo para negocios que van en serio. Hacemos páginas y aplicaciones web funcionales para cualquier tipo de negocio: desde gestión de inventario y sistemas de ventas hasta lo que necesites — lo hacemos realidad.</p>
     <div class="hero-cta">
       <button class="btn-primary" onclick="openQuiz()">Empezar proyecto →</button>
       <p class="hero-trust">Sin compromisos · Respuesta en menos de 24 horas · 100% gratis</p>
@@ -2032,12 +2023,6 @@ document.getElementById('quiz-form').addEventListener('submit',async function(e)
 });
 </script>
 <script>
-/* ── SCROLL PROGRESS BAR ─────────────────────────────────── */
-const progressBar=document.getElementById('scroll-progress');
-window.addEventListener('scroll',()=>{
-  const pct=scrollY/(document.body.scrollHeight-innerHeight)*100;
-  progressBar.style.width=pct+'%';
-},{passive:true});
 
 /* ── CURSOR TRAIL ─────────────────────────────────────────── */
 const trails=[...document.querySelectorAll('.cur-trail')];
