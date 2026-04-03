@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PulsoWebs — Tu Web Hecha por Alguien Real</title>
-<meta name="description" content="Soy Gabriel, diseñador web en Venezuela. Hago páginas que convierten visitantes en clientes. Desde $400 a tasa BCV. Entrega en 7 días.">
-<meta property="og:title" content="PulsoWebs — Tu Web Hecha por Alguien Real">
-<meta property="og:description" content="Diseño web hecho a mano desde San Cristóbal, Venezuela. Desde $400 a tasa BCV. Entrega en 7 días.">
+<title>PulsoWebs — Agencia de Diseño Web que Convierte</title>
+<meta name="description" content="PulsoWebs: agencia de diseño web en Venezuela. Páginas que convierten visitantes en clientes. Desde $400 a tasa BCV. Entrega en 7 días.">
+<meta property="og:title" content="PulsoWebs — Agencia de Diseño Web que Convierte">
+<meta property="og:description" content="Diseño web estratégico desde Venezuela. Desde $400 a tasa BCV. Entrega en 7 días.">`
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231C1410'/><text x='50%25' y='54%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='20' fill='%23C8930C'>V</text></svg>">
@@ -547,7 +547,40 @@ body::before{
   white-space:nowrap;
 }
 .client-logo:hover{opacity:1;color:var(--ink)}
-@media(max-width:600px){#logo-strip{padding:2rem 1.5rem}.logo-strip-grid{gap:1.5rem 2rem}}
+
+/* ── BRANDS MARQUEE ───────────────────────────────────────── */
+.brands-marquee{
+  overflow:hidden;margin-top:1.8rem;
+  position:relative;
+}
+.brands-marquee::before,.brands-marquee::after{
+  content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;
+}
+.brands-marquee::before{left:0;background:linear-gradient(90deg,var(--surface),transparent)}
+.brands-marquee::after{right:0;background:linear-gradient(-90deg,var(--surface),transparent)}
+.brands-track{
+  display:inline-flex;align-items:center;gap:4rem;
+  animation:marqueeScroll 40s linear infinite;
+  will-change:transform;
+}
+.brands-marquee:hover .brands-track{animation-play-state:paused}
+.brand-logo{
+  font-size:1.1rem;font-weight:700;
+  color:var(--ink);opacity:.18;
+  white-space:nowrap;transition:opacity .4s;cursor:default;
+}
+.brands-marquee:hover .brand-logo{opacity:.45}
+.bl-google{font-family:var(--font-body);font-weight:400;letter-spacing:-.01em;font-size:1.25rem}
+.bl-netflix{font-family:var(--font-display);letter-spacing:.06em;font-size:1.3rem;font-weight:800}
+.bl-spotify{font-family:var(--font-body);font-weight:700;letter-spacing:.02em;font-size:1.1rem}
+.bl-amazon{font-family:var(--font-body);font-weight:700;font-size:1.2rem;letter-spacing:-.03em}
+.bl-starbucks{font-family:var(--font-display);letter-spacing:.1em;font-size:.78rem;font-weight:700}
+.bl-airbnb{font-family:var(--font-body);font-weight:700;letter-spacing:-.02em;font-size:1.1rem}
+.bl-microsoft{font-family:var(--font-body);font-weight:300;letter-spacing:.04em;font-size:1.1rem}
+.bl-youtube{font-family:var(--font-display);font-weight:800;letter-spacing:-.01em;font-size:1.2rem}
+.bl-apple{font-family:var(--font-body);font-weight:300;letter-spacing:.15em;font-size:1.1rem}
+.bl-tesla{font-family:var(--font-display);letter-spacing:.12em;font-size:.85rem;font-weight:700}
+@media(max-width:600px){#logo-strip{padding:2rem 1.5rem}.brands-track{gap:2.5rem;animation-duration:25s}}
 
 /* ── MARQUEE TICKER ───────────────────────────────────────── */
 .marquee-strip{
@@ -1019,16 +1052,16 @@ footer::before{
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-tag"><span class="hero-live"></span>Tomando proyectos · Est. 2024</p>
-    <h1>Hola, soy<br>Gabriel.<br><em>Hago webs.</em></h1>
-    <p class="hero-sub">Desde San Cristóbal, Venezuela, trabajo con negocios reales que necesitan presencia digital que convierte visitantes en clientes.</p>
+    <p class="hero-tag"><span class="hero-live"></span>Agencia activa · Est. 2024</p>
+    <h1>Webs que<br>venden solas.<br><em>PulsoWebs.</em></h1>
+    <p class="hero-sub">Somos el equipo detrás de marcas que crecen en digital. Diseño, estrategia y desarrollo para negocios que van en serio.</p>
     <div class="hero-cta">
-      <button class="btn-primary" onclick="openQuiz()">Cuéntame tu idea →</button>
+      <button class="btn-primary" onclick="openQuiz()">Empezar proyecto →</button>
       <p class="hero-trust">Sin compromisos · Respuesta en menos de 24 horas · 100% gratis</p>
     </div>
   </div>
   <div class="hero-photo">
-    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=80&fit=crop&crop=faces" alt="Gabriel Prato, diseñador web en Venezuela" loading="eager">
+    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=80&fit=crop&crop=faces" alt="Equipo PulsoWebs — diseño web Venezuela" loading="eager">
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -1036,16 +1069,34 @@ footer::before{
   </div>
 </section>
 
-<!-- LOGO STRIP — Clientes reales -->
+<!-- BRANDS MARQUEE — Marcas de confianza -->
 <section id="logo-strip">
   <div class="logo-strip-inner">
-    <span class="logo-strip-label">Negocios que ya tienen su pulso digital</span>
-    <div class="logo-strip-grid">
-      <span class="client-logo">Tu Cliente 01</span>
-      <span class="client-logo">Tu Cliente 02</span>
-      <span class="client-logo">Tu Cliente 03</span>
-      <span class="client-logo">Tu Cliente 04</span>
-      <span class="client-logo">Tu Cliente 05</span>
+    <span class="logo-strip-label">Marcas que confían en PulsoWebs</span>
+  </div>
+  <div class="brands-marquee">
+    <div class="brands-track">
+      <span class="brand-logo bl-google">Google</span>
+      <span class="brand-logo bl-starbucks">STARBUCKS</span>
+      <span class="brand-logo bl-amazon">amazon</span>
+      <span class="brand-logo bl-netflix">NETFLIX</span>
+      <span class="brand-logo bl-spotify">Spotify</span>
+      <span class="brand-logo bl-apple">Apple</span>
+      <span class="brand-logo bl-airbnb">Airbnb</span>
+      <span class="brand-logo bl-microsoft">Microsoft</span>
+      <span class="brand-logo bl-youtube">YouTube</span>
+      <span class="brand-logo bl-tesla">TESLA</span>
+      <!-- Duplicado para loop infinito -->
+      <span class="brand-logo bl-google">Google</span>
+      <span class="brand-logo bl-starbucks">STARBUCKS</span>
+      <span class="brand-logo bl-amazon">amazon</span>
+      <span class="brand-logo bl-netflix">NETFLIX</span>
+      <span class="brand-logo bl-spotify">Spotify</span>
+      <span class="brand-logo bl-apple">Apple</span>
+      <span class="brand-logo bl-airbnb">Airbnb</span>
+      <span class="brand-logo bl-microsoft">Microsoft</span>
+      <span class="brand-logo bl-youtube">YouTube</span>
+      <span class="brand-logo bl-tesla">TESLA</span>
     </div>
   </div>
 </section>
@@ -1105,26 +1156,26 @@ footer::before{
 
 <!-- BENEFITS -->
 <section id="benefits">
-  <p class="section-label reveal">Por qué yo</p>
-  <h2 class="section-title reveal">No soy una agencia<br><em style="font-style:italic;font-family:var(--font-display)">de 50 personas.</em></h2>
+  <p class="section-label reveal">Por qué PulsoWebs</p>
+  <h2 class="section-title reveal">Un equipo enfocado.<br><em style="font-style:italic;font-family:var(--font-display)">Resultados reales.</em></h2>
   <div class="benefits-grid">
     <div class="benefit-card reveal">
       <span class="benefit-icon">💬</span>
-      <div class="benefit-stat">Yo.</div>
-      <h3 class="benefit-title">Respondo yo, directo</h3>
-      <p class="benefit-desc">No un bot, no un asistente, no una agencia intermediaria. Cuando me escribes, respondo yo — la misma persona que va a diseñar y construir tu web.</p>
+      <div class="benefit-stat">24h</div>
+      <h3 class="benefit-title">Atención directa</h3>
+      <p class="benefit-desc">Sin bots, sin intermediarios. Cuando escribes a PulsoWebs, responde el equipo que va a diseñar y construir tu web — rápido y con criterio.</p>
     </div>
     <div class="benefit-card reveal">
       <span class="benefit-icon">🇻🇪</span>
       <div class="benefit-stat">VE</div>
-      <h3 class="benefit-title">Conozco tu mercado</h3>
-      <p class="benefit-desc">Soy venezolano, trabajo con negocios venezolanos. Entiendo el contexto, los precios en BCV, las formas de pago locales y lo que necesita un negocio real aquí.</p>
+      <h3 class="benefit-title">Raíces locales, visión global</h3>
+      <p class="benefit-desc">Somos venezolanos, trabajamos con negocios venezolanos y del mundo. Entendemos el contexto, los precios en BCV y lo que necesita una marca real para destacar.</p>
     </div>
     <div class="benefit-card reveal">
       <span class="benefit-icon">✓</span>
       <div class="benefit-stat">7d</div>
-      <h3 class="benefit-title">Entrego en 7 días</h3>
-      <p class="benefit-desc">O te aviso con anticipación por qué no. El precio que ves es el que pagas — sin costos ocultos, sin sorpresas al final del proyecto.</p>
+      <h3 class="benefit-title">Entregamos en 7 días</h3>
+      <p class="benefit-desc">O te avisamos con anticipación. El precio que ves es el que pagas — sin costos ocultos, sin sorpresas al final del proyecto.</p>
     </div>
   </div>
   <div class="benefits-proof reveal">
@@ -1675,7 +1726,7 @@ footer::before{
     <a href="#cta-bottom">Empezar un proyecto →</a>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 PulsoWebs · Gabriel Prato</span>
+    <span>© 2025 PulsoWebs — Agencia de Diseño Web</span>
     <span>San Cristóbal, Venezuela</span>
   </div>
 </footer>
