@@ -33,6 +33,7 @@
   --gold-dim:var(--pulse-dim);
   --bg:#FFFFFF;
   --bg-dark:#0D0D0D;
+  --web-blue:#007AFF;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{
@@ -103,10 +104,10 @@ nav.scrolled{background:rgba(237,224,208,.97);-webkit-backdrop-filter:blur(16px)
 .hero-photo img{
   width:100%;height:100%;object-fit:cover;
   border-radius:20px;
-  filter:grayscale(15%);
-  transition:filter .4s;
+  filter:grayscale(55%) contrast(1.08) brightness(.97);
+  transition:filter .5s var(--ease);
 }
-.hero-photo:hover img{filter:grayscale(0%)}
+.hero-photo:hover img{filter:grayscale(20%) contrast(1.04) brightness(1)}
 .hero-photo::after{
   content:'';position:absolute;inset:0;border-radius:20px;
   background:linear-gradient(to bottom,transparent 60%,rgba(13,13,13,.25));
@@ -118,13 +119,13 @@ nav.scrolled{background:rgba(237,224,208,.97);-webkit-backdrop-filter:blur(16px)
   margin-bottom:2rem;
 }
 h1{
-  font-family:var(--font-display);font-size:clamp(3rem,5.5vw,5.5rem);font-weight:800;
-  line-height:1.0;letter-spacing:-.03em;text-align:left;
+  font-family:var(--font-display);font-size:clamp(3rem,6vw,6.5rem);font-weight:800;
+  line-height:.96;letter-spacing:-.04em;text-align:left;
 }
 h1 em{font-style:normal;color:var(--pulse)}
 .hero-sub{
-  max-width:480px;margin:1.8rem 0 0;font-size:1rem;color:var(--mist);text-align:left;
-  line-height:1.7;
+  max-width:460px;margin:1.4rem 0 0;font-size:1.05rem;color:var(--mist);text-align:left;
+  line-height:1.65;letter-spacing:.005em;
 }
 .hero-cta{margin-top:2.5rem;display:flex;flex-direction:column;align-items:flex-start;gap:.8rem}
 .btn-primary{
@@ -186,19 +187,20 @@ h1 em{font-style:normal;color:var(--pulse)}
 /* ── BENEFITS ─────────────────────────────────────────────── */
 #benefits{padding:8rem 4rem;max-width:1200px;margin:0 auto;position:relative;overflow:hidden}
 .section-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:5rem}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.12;letter-spacing:-.025em;margin-bottom:5rem}
 #faq .section-title{margin-bottom:2rem}
-.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .benefit-card{
   padding:2.5rem 2rem;background:var(--surface);border:1px solid var(--border);
-  transition:border-color .3s,background .3s;position:relative;overflow:hidden;
+  border-radius:12px;
+  transition:border-color .3s,background .3s,box-shadow .3s;position:relative;overflow:hidden;
 }
 .benefit-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   opacity:0;transition:opacity .3s;
 }
-.benefit-card:hover{border-color:var(--border-hover);background:var(--surface2)}
+.benefit-card:hover{border-color:var(--border-hover);background:var(--surface2);box-shadow:0 8px 32px rgba(13,13,13,.07)}
 .benefit-card:hover::before{opacity:1}
 .benefit-num{font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:var(--border-hover);line-height:1;margin-bottom:1.5rem}
 .benefit-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:.75rem}
@@ -419,10 +421,11 @@ footer{
 .success-sub{color:var(--mist);max-width:460px;margin:0 auto 2.5rem}
 
 /* ── BENEFITS ENHANCED ────────────────────────────────────── */
-.benefit-icon{font-size:1.8rem;display:block;margin-bottom:1rem;line-height:1}
+.benefit-icon{display:block;margin-bottom:1.2rem;width:26px;height:26px;color:var(--pulse)}
+.benefit-icon svg{width:100%;height:100%;stroke-width:1.5}
 .benefit-stat{
-  font-family:var(--font-display);font-size:2.6rem;font-weight:700;
-  color:var(--pulse);line-height:1;margin-bottom:.5rem;
+  font-family:var(--font-display);font-size:3.2rem;font-weight:800;
+  color:var(--pulse);line-height:1;letter-spacing:-.04em;margin-bottom:.5rem;
 }
 .benefit-card{box-shadow:0 2px 20px rgba(13,13,13,.04)}
 .benefit-card:hover{box-shadow:0 8px 32px rgba(13,13,13,.08)}
@@ -655,7 +658,7 @@ footer::before{
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem}
   #benefits,#portfolio,#pricing,#cta-bottom{padding:5rem 1.5rem}
-  .benefits-grid,.portfolio-grid,.pricing-grid{grid-template-columns:1fr}
+  .benefits-grid,.portfolio-grid,.pricing-grid{grid-template-columns:1fr;gap:1rem}
   .benefits-proof{flex-wrap:wrap}
   .proof-item{flex:calc(50% - 1px);min-width:calc(50% - 1px)}
   .proof-item:nth-child(even){border-right:none}
@@ -676,6 +679,7 @@ footer::before{
   --border:rgba(242,237,229,0.07);
   --border-hover:rgba(242,237,229,0.18);
   --mist:rgba(242,237,229,0.48);
+  --web-blue:#0A84FF;
 }
 [data-theme="dark"] nav.scrolled{background:rgba(15,13,10,.96)}
 [data-theme="dark"] #testimonials{background:#0A0806}
@@ -756,6 +760,55 @@ footer::before{
 /* Dark mode — bajar opacidad de los patrones para que no compitan */
 [data-theme="dark"] #benefits::before,[data-theme="dark"] #pricing::after,
 [data-theme="dark"] #cta-bottom::before,[data-theme="dark"] #portfolio::before{opacity:.4}
+
+/* ── HERO BADGE — glassmorphism iOS pill sobre la foto ────── */
+.hero-photo-badge{
+  position:absolute;bottom:1.6rem;left:1.2rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.55rem 1.1rem;
+  background:rgba(255,255,255,.16);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:30px;
+  font-size:.72rem;font-weight:500;letter-spacing:.03em;
+  color:#fff;
+  box-shadow:0 2px 16px rgba(0,0,0,.18);
+}
+.badge-live{
+  width:6px;height:6px;border-radius:50%;background:#34C759;flex-shrink:0;
+  position:relative;
+}
+.badge-live::after{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  background:rgba(52,199,89,.3);animation:livePulse 2.2s ease-out infinite;
+}
+
+/* ── HERO CHIPS — micro-stats iOS widget style ────────────── */
+.hero-chips{
+  display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem;
+}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.38rem .9rem;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:30px;
+  font-size:.72rem;font-weight:400;letter-spacing:.04em;
+  color:var(--mist);
+  transition:border-color .2s,color .2s;
+}
+.hero-chip:hover{border-color:var(--web-blue);color:var(--web-blue)}
+.hero-chip-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--web-blue);opacity:.7;flex-shrink:0;
+}
+
+/* ── HERO SIGNATURE ───────────────────────────────────────── */
+.hero-signature{
+  font-size:.72rem;color:var(--mist);letter-spacing:.04em;
+  margin-top:.5rem;font-style:italic;
+  opacity:.7;
+}
 
 /* ── DARK MODE TOGGLE ─────────────────────────────────────── */
 .theme-toggle{
@@ -1045,16 +1098,25 @@ footer::before{
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-tag"><span class="hero-live"></span>Agencia activa · Est. 2024</p>
-    <h1>Webs que<br>venden solas.<br><em><span style="color:var(--pulse)">Pulso</span><span style="color:#fff">Webs</span>.</em></h1>
-    <p class="hero-sub">Diseño, estrategia y desarrollo para negocios que van en serio. Hacemos páginas y aplicaciones web funcionales para cualquier tipo de negocio: desde gestión de inventario y sistemas de ventas hasta lo que necesites — lo hacemos realidad.</p>
+    <p class="hero-tag"><span class="hero-live"></span>Disponibles para nuevos proyectos</p>
+    <h1><span style="color:var(--web-blue)">Webs</span> que<br>venden solas.<br><em><span style="color:var(--pulse)">Pulso</span><span style="color:var(--web-blue)">Webs</span>.</em></h1>
+    <p class="hero-sub">Sin plantillas. Sin intermediarios.<br>Tu web, construida desde cero — por las mismas personas que responden tu mensaje.</p>
+    <div class="hero-chips">
+      <span class="hero-chip"><span class="hero-chip-dot"></span>Entrega en 7 días</span>
+      <span class="hero-chip"><span class="hero-chip-dot"></span>Desde $400 BCV</span>
+      <span class="hero-chip"><span class="hero-chip-dot"></span>Sin plantillas</span>
+    </div>
     <div class="hero-cta">
       <button class="btn-primary" onclick="openQuiz()">Empezar proyecto →</button>
-      <p class="hero-trust">Sin compromisos · Respuesta en menos de 24 horas · 100% gratis</p>
+      <p class="hero-signature">Sin compromisos · Respuesta en &lt;24 h</p>
     </div>
   </div>
   <div class="hero-photo">
     <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=80&fit=crop&crop=faces" alt="Equipo PulsoWebs — diseño web Venezuela" loading="eager">
+    <div class="hero-photo-badge">
+      <span class="badge-live"></span>
+      50+ webs lanzadas
+    </div>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -1118,23 +1180,23 @@ footer::before{
 
 <!-- CONTACTO / CTA -->
 <section id="cta-bottom">
-  <h2 class="reveal">¿Listo para darle<br><em>pulso a tu negocio?</em></h2>
-  <p class="reveal" style="margin-bottom:3rem;color:var(--mist);font-size:1rem">Dos formas de empezar — las dos llevan al mismo resultado.</p>
+  <h2 class="reveal">¿Cuándo empezamos<br><em>tu proyecto?</em></h2>
+  <p class="reveal" style="margin-bottom:3rem;color:var(--mist);font-size:1rem">Elige cómo prefieres arrancar — los dos caminos llevan al mismo lugar.</p>
   <div class="contact-paths reveal">
 
     <!-- Opción 1: Quiz -->
     <div class="cp-card">
       <span class="cp-tag">Guiado · 3 minutos</span>
-      <h3 class="cp-title">Cuestionario personalizado</h3>
-      <p class="cp-desc">Responde 4 preguntas rápidas sobre tu negocio y recibe una propuesta detallada en menos de 24 horas.</p>
+      <h3 class="cp-title">Cuéntame sobre tu negocio</h3>
+      <p class="cp-desc">4 preguntas rápidas y recibas una propuesta real — con precio, plazo y lo que haría específicamente para ti. Sin vaguedades.</p>
       <button class="cp-btn cp-btn-quiz" onclick="openQuiz()">Empezar cuestionario →</button>
     </div>
 
     <!-- Opción 2: WhatsApp -->
     <div class="cp-card">
-      <span class="cp-tag">Directo · Respuesta rápida</span>
-      <h3 class="cp-title">Escríbenos por WhatsApp</h3>
-      <p class="cp-desc">¿Prefieres hablar directamente? Chatea con nosotros ahora y resolveremos tus dudas al instante.</p>
+      <span class="cp-tag">Directo · Respuesta en minutos</span>
+      <h3 class="cp-title">Escríbeme directo</h3>
+      <p class="cp-desc">Sin formularios ni intermediarios. Me caes al WhatsApp, me cuentas tu idea en dos líneas y seguimos desde ahí.</p>
       <a class="cp-btn cp-btn-wpp" href="https://wa.me/584247450708" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -1149,26 +1211,41 @@ footer::before{
 
 <!-- BENEFITS -->
 <section id="benefits">
-  <p class="section-label reveal">Por qué PulsoWebs</p>
-  <h2 class="section-title reveal">Un equipo enfocado.<br><em style="font-style:italic;font-family:var(--font-display)">Resultados reales.</em></h2>
+  <p class="section-label reveal">Lo que nos diferencia</p>
+  <h2 class="section-title reveal">Pocos proyectos a la vez.<br><em style="font-style:italic;font-family:var(--font-display)">Cada uno, como si fuera el único.</em></h2>
   <div class="benefits-grid">
     <div class="benefit-card reveal">
-      <span class="benefit-icon">💬</span>
+      <span class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </span>
       <div class="benefit-stat">24h</div>
-      <h3 class="benefit-title">Atención directa</h3>
-      <p class="benefit-desc">Sin bots, sin intermediarios. Cuando escribes a PulsoWebs, responde el equipo que va a diseñar y construir tu web — rápido y con criterio.</p>
+      <h3 class="benefit-title">Respondo yo. No un bot.</h3>
+      <p class="benefit-desc">El mismo que diseña tu web responde tus mensajes. Sin tickets, sin esperas de 3 días. Escribes — y en menos de 24 horas hay una persona real al otro lado.</p>
     </div>
     <div class="benefit-card reveal">
-      <span class="benefit-icon">🇻🇪</span>
+      <span class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h4M18 12h4M12 2v4M12 18v4"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </span>
       <div class="benefit-stat">VE</div>
-      <h3 class="benefit-title">Raíces locales, visión global</h3>
-      <p class="benefit-desc">Somos venezolanos, trabajamos con negocios venezolanos y del mundo. Entendemos el contexto, los precios en BCV y lo que necesita una marca real para destacar.</p>
+      <h3 class="benefit-title">Venezolanos que entienden tu contexto</h3>
+      <p class="benefit-desc">Sabemos lo que vale un dólar en BCV. Conocemos el mercado, las plataformas de pago y cómo piensa tu cliente. No hay que explicarle nada a un extranjero.</p>
     </div>
     <div class="benefit-card reveal">
-      <span class="benefit-icon">✓</span>
+      <span class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          <polyline points="9 16 11 18 15 14"/>
+        </svg>
+      </span>
       <div class="benefit-stat">7d</div>
       <h3 class="benefit-title">Entregamos en 7 días</h3>
-      <p class="benefit-desc">O te avisamos con anticipación. El precio que ves es el que pagas — sin costos ocultos, sin sorpresas al final del proyecto.</p>
+      <p class="benefit-desc">No en cuatro semanas ni "depende". Siete días calendario desde el primer boceto hasta tu dominio en vivo. Si algo va a tardar más, te digo antes — no después.</p>
     </div>
   </div>
   <div class="benefits-proof reveal">
@@ -1231,8 +1308,8 @@ footer::before{
 <!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="portfolio-inner">
-    <p class="section-label reveal">Nuestro trabajo</p>
-    <h2 class="section-title reveal">Proyectos que<br><em style="font-style:italic;font-family:var(--font-display)">hablan por sí solos</em></h2>
+    <p class="section-label reveal">Lo que construimos</p>
+    <h2 class="section-title reveal">Diseñado para funcionar,<br><em style="font-style:italic;font-family:var(--font-display)">no para ganar premios.</em></h2>
     <div class="portfolio-grid">
       <!-- ARIA Boutique -->
       <div class="port-card reveal">
@@ -1560,7 +1637,7 @@ footer::before{
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <p class="section-label reveal">Clientes reales</p>
+  <p class="section-label reveal">Sin filtros</p>
   <h2 class="section-title reveal">Lo que dicen<br><em>quienes confiaron en mí</em></h2>
   <div class="swiper testi-swiper reveal">
     <div class="swiper-wrapper">
@@ -1659,7 +1736,7 @@ footer::before{
 <section id="faq">
   <div class="faq-inner">
     <p class="section-label reveal">Preguntas frecuentes</p>
-    <h2 class="section-title reveal">Todo lo que<br><em style="font-style:italic;font-family:var(--font-display)">necesitas saber</em></h2>
+    <h2 class="section-title reveal">Lo que me preguntan<br><em style="font-style:italic;font-family:var(--font-display)">antes de empezar</em></h2>
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-question">¿Cuánto tiempo tarda realmente la entrega?<span class="faq-icon">+</span></button>
@@ -1696,7 +1773,7 @@ footer::before{
     </div>
     <div class="faq-cta reveal">
       <p class="faq-cta-text">¿Tienes una pregunta que no está aquí?</p>
-      <a class="btn-primary" href="https://wa.me/584247450708" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
+      <a class="btn-primary" href="https://wa.me/584247450708" target="_blank" rel="noopener">Escríbeme por WhatsApp →</a>
     </div>
   </div>
 </section>
@@ -1719,7 +1796,7 @@ footer::before{
     <a href="#cta-bottom">Empezar un proyecto →</a>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 PulsoWebs — Agencia de Diseño Web</span>
+    <span>© 2025 PulsoWebs — Hecho a mano en Venezuela</span>
     <span>San Cristóbal, Venezuela</span>
   </div>
 </footer>
@@ -2134,8 +2211,8 @@ function splitH1Words(h1) {
       });
     } else if (node.nodeName === 'BR') {
       h1.appendChild(document.createElement('br'));
-    } else if (node.nodeName === 'EM') {
-      /* la em completa se trata como una palabra */
+    } else if (node.nodeName === 'EM' || node.nodeName === 'SPAN') {
+      /* em y span se tratan como una palabra completa */
       const s = document.createElement('span');
       s.className = 'h1w';
       s.style.display = 'inline-block';
@@ -2185,9 +2262,16 @@ mm.add({
       { autoAlpha: 0, scale: reduceMotion ? 1 : 0.85 },
       { autoAlpha: 1, scale: 1, duration: D * 0.7,
         ease: reduceMotion ? 'none' : 'back.out(1.4)' }, '-=0.35')
-    .fromTo('.hero-trust',
+    .fromTo('.hero-chips',
+      { autoAlpha: 0, y: Y * 14 },
+      { autoAlpha: 1, y: 0, duration: D * 0.6 }, '-=0.3')
+    .fromTo('.hero-signature',
       { autoAlpha: 0 },
-      { autoAlpha: 1, duration: D * 0.6 }, '-=0.3')
+      { autoAlpha: 1, duration: D * 0.5 }, '-=0.25')
+    .fromTo('.hero-photo-badge',
+      { autoAlpha: 0, y: Y * 10, scale: reduceMotion ? 1 : 0.92 },
+      { autoAlpha: 1, y: 0, scale: 1, duration: D * 0.6,
+        ease: reduceMotion ? 'none' : 'back.out(1.4)' }, '-=0.4')
     .fromTo('.hero-scroll',
       { autoAlpha: 0 },
       { autoAlpha: 1, duration: D * 0.6 }, '-=0.25');
