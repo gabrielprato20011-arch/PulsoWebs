@@ -57,7 +57,7 @@ body.cursor-ready,body.cursor-ready *{cursor:none}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:1.5rem 4rem;
+  padding:2rem 4rem;
   transition:background .4s,backdrop-filter .4s,box-shadow .4s,border-color .4s;
 }
 /* pseudo-elements: hidden por defecto, aparecen con .scrolled */
@@ -719,6 +719,7 @@ footer::before{
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem}
+  #velox-cat{width:44px}
   #benefits,#portfolio,#pricing,#cta-bottom{padding:5rem 1.5rem}
   .benefits-grid,.portfolio-grid,.pricing-grid{grid-template-columns:1fr;gap:1rem}
   .benefits-proof{flex-wrap:wrap}
@@ -1031,6 +1032,7 @@ footer::before{
 /* ── MOBILE (<=600px) ──────────────────────────────────────── */
 @media(max-width:600px){
   nav{padding:1rem 1.2rem}
+  #velox-cat{width:36px}
   .logo{font-size:1.8rem}
   .nav-cta{font-size:.7rem;padding:.5rem .9rem;letter-spacing:.05em}
   #hero{padding:5.5rem 1.2rem 4.5rem}
@@ -1144,6 +1146,7 @@ footer::before{
   .hero-stat-num{font-size:1.2rem}
   .hero-stat-label{font-size:.6rem;text-align:right}
   nav{padding:.8rem .9rem}
+  #velox-cat{width:30px}
   .logo{font-size:1.6rem}
   .nav-cta{padding:.4rem .7rem;font-size:.62rem}
   .hero-tag{font-size:.62rem;letter-spacing:.1em}
@@ -1177,12 +1180,12 @@ footer::before{
   position:relative;
   display:inline-flex;
   align-items:center;
+  gap:6px;
 }
 #velox-cat{
-  position:absolute;
-  bottom:calc(100% - 22px);
-  right:-14px;
-  width:100px;
+  position:relative;
+  width:56px;
+  flex-shrink:0;
   overflow:visible;
   cursor:none;
   z-index:10;
