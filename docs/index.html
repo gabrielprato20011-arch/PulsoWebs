@@ -1180,9 +1180,9 @@ footer::before{
 }
 #velox-cat{
   position:absolute;
-  bottom:calc(100% - 18px);
-  right:-12px;
-  width:110px;
+  bottom:calc(100% - 22px);
+  right:-14px;
+  width:100px;
   overflow:visible;
   cursor:none;
   z-index:10;
@@ -1226,117 +1226,118 @@ footer::before{
 <nav id="nav">
   <div class="logo-wrapper">
     <a class="logo" href="#"><span>Pulso</span>Webs</a>
-    <svg id="velox-cat" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg id="velox-cat" viewBox="0 0 90 108" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 
-      <!-- ── BODY ── -->
+      <!-- ── COLA ── -->
+      <g id="cat-tail">
+        <path d="M 60,82 C 76,79 83,65 76,56"
+              fill="none" stroke="#F07030" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 60,82 C 76,79 83,65 76,56"
+              fill="none" stroke="#F8A070" stroke-width="3.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- ── CUERPO ── -->
       <g id="cat-body">
-        <ellipse cx="72" cy="44" rx="33" ry="13"
-                 fill="#D4B0E4" stroke="#2a1a3a" stroke-width="2.5"/>
-        <g id="cat-legs-front">
-          <path d="M 47,51 Q 45,60 45,66"
-                stroke="#2a1a3a" stroke-width="5.5" stroke-linecap="round" fill="none"/>
-          <path d="M 56,52 Q 55,61 55,67"
-                stroke="#2a1a3a" stroke-width="5.5" stroke-linecap="round" fill="none"/>
-          <ellipse cx="45" cy="67" rx="4.5" ry="2.5"
-                   fill="#C8A8D8" stroke="#2a1a3a" stroke-width="1.5"/>
-          <ellipse cx="55" cy="68" rx="4.5" ry="2.5"
-                   fill="#C8A8D8" stroke="#2a1a3a" stroke-width="1.5"/>
+        <ellipse cx="45" cy="82" rx="20" ry="14"
+                 fill="#F07030" stroke="#2a1a3a" stroke-width="2"/>
+        <ellipse cx="45" cy="84" rx="12" ry="9" fill="#F8A070"/>
+      </g>
+
+      <!-- ── LAPTOP ── -->
+      <g id="cat-laptop">
+        <rect x="16" y="62" width="58" height="32" rx="4"
+              fill="#4BC8C0" stroke="#2a1a3a" stroke-width="2"/>
+        <rect x="20" y="66" width="50" height="24" rx="2" fill="#2ADBD0"/>
+        <rect x="24" y="70" width="22" height="2.5" rx="1" fill="#1a6a66" opacity="0.7"/>
+        <rect x="24" y="75" width="34" height="2.5" rx="1" fill="#1a6a66" opacity="0.7"/>
+        <rect x="24" y="80" width="18" height="2.5" rx="1" fill="#1a6a66" opacity="0.7"/>
+        <rect id="screen-cursor" x="43" y="80" width="4" height="3" rx="0.5" fill="#1a0a2e"/>
+        <rect id="laptop-base" x="12" y="93" width="66" height="8" rx="4"
+              fill="#3AABA4" stroke="#2a1a3a" stroke-width="2"/>
+      </g>
+
+      <!-- ── BRAZOS Y PATAS ── -->
+      <g id="cat-paws">
+        <path d="M 30,80 Q 23,88 19,93"
+              stroke="#F07030" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M 60,80 Q 67,88 71,93"
+              stroke="#F07030" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <ellipse id="paw-left"  cx="19" cy="94" rx="7" ry="4"
+                 fill="#F8A070" stroke="#2a1a3a" stroke-width="1.5"/>
+        <ellipse id="paw-right" cx="71" cy="94" rx="7" ry="4"
+                 fill="#F8A070" stroke="#2a1a3a" stroke-width="1.5"/>
+      </g>
+
+      <!-- ── CABEZA ── -->
+      <circle id="cat-head" cx="45" cy="40" r="22"
+              fill="#F07030" stroke="#2a1a3a" stroke-width="2"/>
+
+      <!-- ── OREJAS ── -->
+      <g id="cat-ears">
+        <g id="cat-ear-left">
+          <ellipse cx="27" cy="22" rx="10" ry="12"
+                   fill="#F07030" stroke="#2a1a3a" stroke-width="2"/>
+          <ellipse cx="27" cy="23" rx="6" ry="7.5" fill="#F8A070"/>
         </g>
-        <g id="cat-tail">
-          <path d="M 98,43 C 112,38 120,52 114,62"
-                fill="none" stroke="#2a1a3a" stroke-width="6" stroke-linecap="round"/>
-          <path d="M 98,43 C 112,38 120,52 114,62"
-                fill="none" stroke="#D4B0E4" stroke-width="3" stroke-linecap="round"/>
+        <g id="cat-ear-right">
+          <ellipse cx="63" cy="22" rx="10" ry="12"
+                   fill="#F07030" stroke="#2a1a3a" stroke-width="2"/>
+          <ellipse cx="63" cy="23" rx="6" ry="7.5" fill="#F8A070"/>
         </g>
       </g>
 
-      <!-- ── HEAD ── -->
-      <g id="cat-head">
-        <g id="cat-ears">
-          <g id="cat-ear-left">
-            <polygon points="6,28 10,2 26,22"
-                     fill="#D4B0E4" stroke="#2a1a3a" stroke-width="2.5" stroke-linejoin="round"/>
-            <polygon points="10,25 12,8 22,20" fill="#C8A8D8"/>
-          </g>
-          <g id="cat-ear-right">
-            <polygon points="26,22 38,1 50,22"
-                     fill="#D4B0E4" stroke="#2a1a3a" stroke-width="2.5" stroke-linejoin="round"/>
-            <polygon points="28,21 38,6 46,21" fill="#C8A8D8"/>
-          </g>
+      <!-- ── AURICULARES ── -->
+      <g id="cat-headphones">
+        <path d="M 20,45 Q 20,10 45,10 Q 70,10 70,45"
+              fill="none" stroke="#4BC8C0" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="20" cy="46" r="8" fill="#4BC8C0" stroke="#2a1a3a" stroke-width="2"/>
+        <circle cx="70" cy="46" r="8" fill="#4BC8C0" stroke="#2a1a3a" stroke-width="2"/>
+      </g>
+
+      <!-- ── OJOS ── -->
+      <g id="cat-eyes">
+        <g id="eye-left">
+          <circle cx="36" cy="41" r="7.5" fill="white" stroke="#2a1a3a" stroke-width="1.5"/>
+          <circle class="cat-pupil" cx="36" cy="41" r="3.8" fill="#2a1a3a"/>
+          <circle cx="38.5" cy="38.5" r="1.3" fill="white"/>
         </g>
-
-        <circle cx="28" cy="34" r="20"
-                fill="#D4B0E4" stroke="#2a1a3a" stroke-width="2.5"/>
-
-        <!-- arrugas de esfinge -->
-        <path d="M 21,25 Q 24,22 27,25"
-              fill="none" stroke="#2a1a3a" stroke-width="1.3" stroke-linecap="round"/>
-        <path d="M 28,24 Q 31,21 34,24"
-              fill="none" stroke="#2a1a3a" stroke-width="1.3" stroke-linecap="round"/>
-
-        <g id="cat-face">
-
-          <!-- ojos cerrados (idle) -->
-          <g id="cat-eyes-closed">
-            <path d="M 17,33 Q 22,37 27,33"
-                  fill="none" stroke="#2a1a3a" stroke-width="2" stroke-linecap="round"/>
-            <path d="M 29,33 Q 34,37 39,33"
-                  fill="none" stroke="#2a1a3a" stroke-width="2" stroke-linecap="round"/>
-          </g>
-
-          <!-- ojos abiertos (awake) - ocultos al inicio -->
-          <g id="cat-eyes" style="opacity:0">
-            <g id="eye-left">
-              <ellipse class="eye-sclera" cx="22" cy="33" rx="5" ry="6.5" fill="#1a0a2e"/>
-              <circle  class="eye-pupil"  cx="22" cy="33" r="2.5" fill="white"/>
-            </g>
-            <g id="eye-right">
-              <ellipse class="eye-sclera" cx="36" cy="33" rx="5" ry="6.5" fill="#1a0a2e"/>
-              <circle  class="eye-pupil"  cx="36" cy="33" r="2.5" fill="white"/>
-            </g>
-          </g>
-
-          <!-- nariz -->
-          <polygon id="cat-nose" points="29,42 24,36 34,36" fill="#E8450A"/>
-
-          <!-- boca -->
-          <path d="M 29,42 Q 25,45 22,44"
-                fill="none" stroke="#2a1a3a" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M 29,42 Q 33,45 36,44"
-                fill="none" stroke="#2a1a3a" stroke-width="1.5" stroke-linecap="round"/>
-
-          <!-- bigotes -->
-          <g id="cat-whiskers">
-            <line x1="19" y1="37" x2="1"  y2="32" stroke="#2a1a3a" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="19" y1="39" x2="0"  y2="39" stroke="#2a1a3a" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="19" y1="41" x2="1"  y2="46" stroke="#2a1a3a" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="37" y1="37" x2="55" y2="32" stroke="#2a1a3a" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="37" y1="39" x2="56" y2="39" stroke="#2a1a3a" stroke-width="1.2" stroke-linecap="round"/>
-            <line x1="37" y1="41" x2="55" y2="46" stroke="#2a1a3a" stroke-width="1.2" stroke-linecap="round"/>
-          </g>
-
-          <!-- ceño fruncido (molesto — oculto por defecto) -->
-          <g id="cat-brow" style="opacity:0">
-            <path d="M 14,27 L 22,31" stroke="#2a1a3a" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M 34,31 L 42,27" stroke="#2a1a3a" stroke-width="2.5" stroke-linecap="round"/>
-          </g>
-
+        <g id="eye-right">
+          <circle cx="54" cy="41" r="7.5" fill="white" stroke="#2a1a3a" stroke-width="1.5"/>
+          <circle class="cat-pupil" cx="54" cy="41" r="3.8" fill="#2a1a3a"/>
+          <circle cx="56.5" cy="38.5" r="1.3" fill="white"/>
         </g>
       </g>
 
-      <!-- ── ZZZ ── -->
-      <g id="cat-zzz" font-family="'Syne',sans-serif" font-weight="700" fill="#2a1a3a">
-        <text class="z1" x="50" y="26" font-size="8"  opacity="0">z</text>
-        <text class="z2" x="58" y="18" font-size="10" opacity="0">z</text>
-        <text class="z3" x="67" y="9"  font-size="13" opacity="0">Z</text>
+      <!-- ── GAFAS ── -->
+      <g id="cat-glasses">
+        <circle cx="36" cy="41" r="10" fill="none" stroke="#2a1a3a" stroke-width="2.2"/>
+        <circle cx="54" cy="41" r="10" fill="none" stroke="#2a1a3a" stroke-width="2.2"/>
+        <line x1="46" y1="41" x2="44" y2="41" stroke="#2a1a3a" stroke-width="2"/>
+        <line x1="64" y1="41" x2="70" y2="38" stroke="#2a1a3a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="26" y1="41" x2="20" y2="38" stroke="#2a1a3a" stroke-width="2" stroke-linecap="round"/>
       </g>
 
-      <!-- ── PATITA (reacción click) ── -->
-      <g id="cat-paw-peek" style="opacity:0">
-        <path d="M 32,48 Q 29,57 29,64"
-              stroke="#2a1a3a" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <ellipse cx="29" cy="65" rx="5" ry="2.5"
-                 fill="#C8A8D8" stroke="#2a1a3a" stroke-width="1.5"/>
+      <!-- ── NARIZ ── -->
+      <polygon points="45,50 42,46 48,46" fill="#2a1a3a"/>
+
+      <!-- ── BOCA ── -->
+      <path d="M 45,50 Q 41,54 38,53"
+            fill="none" stroke="#2a1a3a" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 45,50 Q 49,54 52,53"
+            fill="none" stroke="#2a1a3a" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- ── CEÑO (sorpresa — oculto por defecto) ── -->
+      <g id="cat-brow" style="opacity:0">
+        <path d="M 28,30 Q 36,25 44,30"
+              fill="none" stroke="#2a1a3a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 46,30 Q 54,25 62,30"
+              fill="none" stroke="#2a1a3a" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- ── EXCLAMACIÓN (click — oculto por defecto) ── -->
+      <g id="cat-exclaim" style="opacity:0">
+        <text x="67" y="28" font-family="'Syne',sans-serif" font-weight="700"
+              font-size="20" fill="#E8450A">!</text>
       </g>
 
     </svg>
@@ -2791,39 +2792,46 @@ mm.add({
 
   const cat     = document.getElementById('velox-cat');
   const wrapper = cat.parentElement;
-  let catState  = 'idle';
+  let catState  = 'idle'; /* idle | awake | shocked */
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
-  /* ── idle loops ── */
+  /* ── IDLE LOOPS ── */
+
+  /* Tecleo: patitas rebotan alternando */
+  const typeTl = gsap.timeline({ repeat: -1, repeatDelay: 0.2 })
+    .to('#paw-left',  { y: -2.5, duration: 0.10, ease: 'power1.inOut', yoyo: true, repeat: 1 })
+    .to('#paw-right', { y: -2.5, duration: 0.10, ease: 'power1.inOut', yoyo: true, repeat: 1 }, '+=0.06');
+
+  /* Cursor de pantalla parpadeando */
+  const cursorTl = gsap.to('#screen-cursor', {
+    opacity: 0, duration: 0.45, ease: 'none', yoyo: true, repeat: -1
+  });
+
+  /* Auriculares: micro-oscilación */
+  const headphoneTl = gsap.to('#cat-headphones', {
+    rotation: 1.5, svgOrigin: '45 10',
+    duration: 2.5, ease: 'sine.inOut', yoyo: true, repeat: -1
+  });
+
+  /* Respiración del cuerpo */
   const breathTl = gsap.to('#cat-body', {
     scaleY: 1.04, transformOrigin: 'bottom center',
     duration: 2.5, ease: 'sine.inOut', yoyo: true, repeat: -1
   });
 
+  /* Cola: balanceo suave */
   const tailTl = gsap.to('#cat-tail', {
-    rotation: 8, svgOrigin: '98 43',
+    rotation: 7, svgOrigin: '60 82',
     duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1
   });
 
-  const zzzTl = gsap.fromTo(
-    ['.z1', '.z2', '.z3'],
-    { y: 0, opacity: 0 },
-    {
-      y: -14, opacity: 1, duration: 0.6, stagger: 0.5,
-      repeat: -1, repeatDelay: 0.8, ease: 'power1.out',
-      onRepeat: function () {
-        gsap.set(['.z1', '.z2', '.z3'], { y: 0, opacity: 0 });
-      }
-    }
-  );
-
-  /* ── cursor tracking ── */
+  /* ── CURSOR TRACKING ── */
   let tracking  = false;
-  let rafId = null;
-  let targetX = 0, targetY = 0;
-  let currentX = 0, currentY = 0;
-  const MAX_X = 4, MAX_Y = 3;
+  let rafId     = null;
+  let targetX   = 0, targetY  = 0;
+  let currentX  = 0, currentY = 0;
+  const MAX_X   = 3.5, MAX_Y  = 2.5;
   let catCenter = { x: 0, y: 0 };
 
   function getCatCenter() {
@@ -2834,16 +2842,16 @@ mm.add({
   function onMouseMove(e) {
     const dx = e.clientX - catCenter.x;
     const dy = e.clientY - catCenter.y;
-    targetX = Math.max(-MAX_X, Math.min(MAX_X, dx * 0.02));
-    targetY = Math.max(-MAX_Y, Math.min(MAX_Y, dy * 0.02));
+    targetX = Math.max(-MAX_X, Math.min(MAX_X, dx * 0.018));
+    targetY = Math.max(-MAX_Y, Math.min(MAX_Y, dy * 0.018));
   }
 
   function trackFrame() {
     if (!tracking) return;
     currentX = lerp(currentX, targetX, 0.08);
     currentY = lerp(currentY, targetY, 0.08);
-    gsap.set('#cat-eyes',   { x: currentX,     y: currentY });
-    gsap.set('.eye-pupil',  { x: currentX * 2, y: currentY * 2 });
+    gsap.set('#cat-eyes',  { x: currentX,       y: currentY });
+    gsap.set('.cat-pupil', { x: currentX * 1.8, y: currentY * 1.8 });
     rafId = requestAnimationFrame(trackFrame);
   }
 
@@ -2856,8 +2864,7 @@ mm.add({
 
   function stopCursorTracking() {
     tracking = false;
-    targetX  = 0;
-    targetY  = 0;
+    targetX  = 0; targetY  = 0;
     if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     window.removeEventListener('mousemove', onMouseMove);
   }
@@ -2866,115 +2873,103 @@ mm.add({
     if (catState === 'awake') catCenter = getCatCenter();
   }, { passive: true });
 
-  /* ── wake timeline ── */
+  /* ── WAKE TIMELINE ── */
   const wakeTl = gsap.timeline({ paused: true })
-    .to(zzzTl,              { timeScale: 0, duration: 0.3 })
-    .to([breathTl, tailTl], { timeScale: 0.1, duration: 0.4 }, '<')
-    .to('#cat-ear-left',  { rotation: -15, svgOrigin: '16 26', duration: 0.2, ease: 'back.out(2)' })
-    .to('#cat-ear-right', { rotation:  15, svgOrigin: '38 20', duration: 0.2, ease: 'back.out(2)' }, '<')
-    .to('#cat-eyes-closed', { opacity: 0, duration: 0.15 })
-    .set('#cat-eyes',       { opacity: 1 }, '-=0.05')
-    .fromTo('.eye-sclera',
-      { scaleY: 0.1, transformOrigin: 'center center' },
-      { scaleY: 1,   transformOrigin: 'center center', duration: 0.3, ease: 'elastic.out(1, 0.45)' })
-    .to('#cat-head', { y: -5, rotation: 4, svgOrigin: '28 34', duration: 0.35, ease: 'power2.out' }, '-=0.2')
+    .to(typeTl, { timeScale: 0.15, duration: 0.3 })
+    .to('#cat-head', { y: -6, duration: 0.35, ease: 'power2.out' }, '<')
+    .to('#cat-ear-left',  { rotation: -12, svgOrigin: '27 22', duration: 0.2, ease: 'back.out(2)' }, '<0.1')
+    .to('#cat-ear-right', { rotation:  12, svgOrigin: '63 22', duration: 0.2, ease: 'back.out(2)' }, '<')
     .call(function () { catState = 'awake'; startCursorTracking(); });
 
-  /* ── reset helper ── */
+  /* ── RESET A IDLE ── */
   function resetToIdle() {
     stopCursorTracking();
     wakeTl.pause(0);
-    gsap.set('#cat-eyes',        { x: 0, y: 0, opacity: 0 });
-    gsap.set('.eye-pupil',       { x: 0, y: 0 });
-    gsap.set('.eye-sclera',      { scaleX: 1, scaleY: 1 });
-    gsap.set('#cat-eyes-closed', { opacity: 1 });
-    gsap.set('#cat-head',        { y: 0, rotation: 0 });
-    gsap.set('#cat-ear-left',    { rotation: 0 });
-    gsap.set('#cat-ear-right',   { rotation: 0 });
-    gsap.set('#cat-brow',        { opacity: 0 });
-    gsap.set('#cat-paw-peek',    { opacity: 0, y: 0 });
+    gsap.set('#cat-eyes',      { x: 0, y: 0 });
+    gsap.set('.cat-pupil',     { x: 0, y: 0 });
+    gsap.set('#cat-head',      { y: 0 });
+    gsap.set('#cat-ear-left',  { rotation: 0 });
+    gsap.set('#cat-ear-right', { rotation: 0 });
+    gsap.set('#cat-brow',      { opacity: 0 });
+    gsap.set('#cat-exclaim',   { opacity: 0, y: 0 });
+    typeTl.timeScale(1).play();
     breathTl.timeScale(1).play();
     tailTl.timeScale(1).play();
-    zzzTl.timeScale(1).play();
+    cursorTl.timeScale(1).play();
+    headphoneTl.timeScale(1).play();
     catState = 'idle';
   }
 
-  /* ── click: shock reaction ── */
+  /* ── CLICK: REACCIÓN DE SUSTO ── */
   cat.addEventListener('click', function (e) {
     e.stopPropagation();
     if (catState === 'shocked') return;
     catState = 'shocked';
     stopCursorTracking();
-    wakeTl.pause();
+    typeTl.pause();
     breathTl.pause();
     tailTl.pause();
-    zzzTl.pause();
+    cursorTl.pause();
+    headphoneTl.pause();
 
     gsap.timeline()
-      /* 1. freeze */
-      .set({}, {}, '+=0.08')
+      /* 1. pausa breve */
+      .set({}, {}, '+=0.06')
       /* 2. orejas aplastadas hacia atrás */
-      .to('#cat-ear-left',  { rotation:  45, svgOrigin: '16 26', duration: 0.15, ease: 'power3.in' })
-      .to('#cat-ear-right', { rotation: -45, svgOrigin: '38 20', duration: 0.15, ease: 'power3.in' }, '<')
-      /* 3. ojos enormes — shock */
-      .to('.eye-sclera', { scaleX: 1.35, scaleY: 1.5, transformOrigin: 'center center',
-                           duration: 0.12, ease: 'power4.out' })
-      /* 4. salto */
-      .to(cat, { y: -18, duration: 0.2, ease: 'back.out(3)' })
-      /* 5. caída dramática */
-      .to(cat, { y: 75, rotation: 22, opacity: 0, duration: 0.35, ease: 'power2.in' })
-      /* 6. silencio */
-      .set({}, {}, '+=0.6')
-      /* 7. patita asoma desde abajo */
-      .set('#cat-paw-peek', { opacity: 1, y: 90 })
-      .to('#cat-paw-peek',  { y: 38, duration: 0.28, ease: 'power2.out' })
-      /* 8. gato sube de vuelta */
-      .to(cat,              { y: 0, rotation: 0, opacity: 1, duration: 0.4, ease: 'back.out(1.5)' })
-      .set('#cat-paw-peek', { opacity: 0 })
-      /* 9. resetear orejas y ojos */
-      .to('#cat-ear-left',  { rotation: 0, svgOrigin: '16 26', duration: 0.2, ease: 'back.out' })
-      .to('#cat-ear-right', { rotation: 0, svgOrigin: '38 20', duration: 0.2, ease: 'back.out' }, '<')
-      .to('.eye-sclera',    { scaleX: 1, scaleY: 1, duration: 0.2 }, '<')
-      /* 10. cara molesta */
+      .to('#cat-ear-left',  { rotation:  40, svgOrigin: '27 22', duration: 0.14, ease: 'power3.in' })
+      .to('#cat-ear-right', { rotation: -40, svgOrigin: '63 22', duration: 0.14, ease: 'power3.in' }, '<')
+      /* 3. pupilas grandes — sorpresa */
+      .to('.cat-pupil', { scaleX: 1.4, scaleY: 1.4, transformOrigin: 'center center',
+                          duration: 0.1, ease: 'power4.out' })
+      /* 4. ! aparece */
+      .to('#cat-exclaim', { opacity: 1, y: -8, duration: 0.18, ease: 'back.out(2)' }, '<')
+      /* 5. salto */
+      .to(cat, { y: -18, duration: 0.18, ease: 'back.out(3)' })
+      /* 6. caída fuera del viewport */
+      .to(cat, { y: 80, rotation: 20, opacity: 0, duration: 0.32, ease: 'power2.in' })
+      /* 7. silencio */
+      .set({}, {}, '+=0.55')
+      /* 8. reaparece desde abajo */
+      .to(cat, { y: 0, rotation: 0, opacity: 1, duration: 0.4, ease: 'back.out(1.5)' })
+      .set('#cat-exclaim', { opacity: 0, y: 0 })
+      /* 9. resetear orejas y pupilas */
+      .to('#cat-ear-left',  { rotation: 0, svgOrigin: '27 22', duration: 0.2, ease: 'back.out' })
+      .to('#cat-ear-right', { rotation: 0, svgOrigin: '63 22', duration: 0.2, ease: 'back.out' }, '<')
+      .to('.cat-pupil', { scaleX: 1, scaleY: 1, duration: 0.2 }, '<')
+      /* 10. ceño fruncido + cola agitada */
       .set('#cat-brow', { opacity: 1 })
-      .to('#cat-tail', { rotation: 28, svgOrigin: '98 43', duration: 0.08,
-          yoyo: true, repeat: 9, ease: 'power2.inOut' })
+      .to('#cat-tail', { rotation: 25, svgOrigin: '60 82',
+          duration: 0.08, yoyo: true, repeat: 7, ease: 'power2.inOut' })
       /* 11. volver a idle */
-      .to('#cat-brow', { opacity: 0, duration: 0.6 }, '+=1.8')
+      .to('#cat-brow', { opacity: 0, duration: 0.5 }, '+=1.5')
       .call(resetToIdle);
   });
 
-  /* ── hover: enter ── */
+  /* ── HOVER: ENTER ── */
   wrapper.addEventListener('mouseenter', function () {
     if (catState === 'shocked') return;
-    if (catState === 'idle' || catState === 'sleeping') {
+    if (catState === 'idle') {
       catState = 'waking';
       wakeTl.play();
     }
   });
 
-  /* ── hover: leave ── */
+  /* ── HOVER: LEAVE ── */
   wrapper.addEventListener('mouseleave', function () {
     if (catState === 'shocked') return;
     if (catState === 'awake' || catState === 'waking') {
       catState = 'sleeping';
       stopCursorTracking();
       gsap.set('#cat-eyes',  { x: 0, y: 0 });
-      gsap.set('.eye-pupil', { x: 0, y: 0 });
-      gsap.to('#cat-face', {
-        scaleX: 1.08, transformOrigin: 'center center',
-        duration: 0.14, yoyo: true, repeat: 1, ease: 'power1.inOut',
+      gsap.set('.cat-pupil', { x: 0, y: 0 });
+      gsap.to('#cat-head', {
+        y: 0, duration: 0.3, ease: 'power2.inOut',
         onComplete: function () {
-          wakeTl.timeScale(1.5).reverse();
-          wakeTl.eventCallback('onReverseComplete', function () {
-            if (catState !== 'sleeping') return;
-            catState = 'idle';
-            gsap.set(['.eye-sclera'], { scaleY: 1 });
-            wakeTl.timeScale(1);
-            breathTl.timeScale(1).play();
-            tailTl.timeScale(1).play();
-            zzzTl.timeScale(1).play();
-          });
+          wakeTl.pause(0);
+          gsap.set('#cat-ear-left',  { rotation: 0 });
+          gsap.set('#cat-ear-right', { rotation: 0 });
+          typeTl.timeScale(1).play();
+          if (catState === 'sleeping') catState = 'idle';
         }
       });
     }
