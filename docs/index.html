@@ -58,9 +58,47 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.5rem 4rem;
-  transition:background .4s,backdrop-filter .4s;
+  transition:background .4s,backdrop-filter .4s,box-shadow .4s,border-color .4s;
 }
-nav.scrolled{background:rgba(237,224,208,.97);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+/* pseudo-elements: hidden por defecto, aparecen con .scrolled */
+nav::before,nav::after{content:'';position:absolute;pointer-events:none;opacity:0;transition:opacity .5s var(--ease)}
+
+/* ── LIQUID GLASS ── */
+nav.scrolled{
+  background:rgba(255,255,255,.42);
+  -webkit-backdrop-filter:blur(32px) saturate(180%) brightness(1.08);
+  backdrop-filter:blur(32px) saturate(180%) brightness(1.08);
+  border-bottom:1px solid rgba(255,255,255,.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    inset 0 -1px 0 rgba(255,255,255,.12),
+    0 4px 32px rgba(0,0,0,.07);
+}
+/* Specular highlight — borde de cristal iluminado */
+nav.scrolled::before{
+  top:0;left:6%;right:6%;height:1px;opacity:1;
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,.9) 18%,
+    rgba(255,255,255,1) 50%,
+    rgba(255,255,255,.9) 82%,
+    transparent);
+  filter:blur(.4px);
+}
+/* Cáustica interior — efecto liquid glass con SVG displacement */
+nav.scrolled::after{
+  inset:0;opacity:1;
+  background:
+    radial-gradient(ellipse 140% 90% at 15% -25%,rgba(255,255,255,.24) 0%,transparent 55%),
+    radial-gradient(ellipse 75% 55% at 88% -8%,rgba(255,255,255,.16) 0%,transparent 50%);
+  filter:url(#lg-refract);
+  animation:lgCaustic 8s ease-in-out infinite;
+}
+@keyframes lgCaustic{
+  0%,100%{transform:translateX(0) scaleX(1);opacity:1}
+  38%{transform:translateX(5px) scaleX(1.01);opacity:.82}
+  72%{transform:translateX(-4px) scaleX(.993);opacity:.91}
+}
 .logo{font-family:var(--font-display);font-size:1.6rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
 .logo span{color:var(--pulse)}
 .nav-links{display:flex;gap:2.5rem;align-items:center}
@@ -683,7 +721,27 @@ footer::before{
   --mist:rgba(242,237,229,0.48);
   --web-blue:#0A84FF;
 }
-[data-theme="dark"] nav.scrolled{background:rgba(15,13,10,.96)}
+[data-theme="dark"] nav.scrolled{
+  background:rgba(12,10,8,.52);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.1),
+    inset 0 -1px 0 rgba(0,0,0,.25),
+    0 4px 32px rgba(0,0,0,.4);
+}
+[data-theme="dark"] nav.scrolled::before{
+  background:linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,.22) 18%,
+    rgba(255,255,255,.38) 50%,
+    rgba(255,255,255,.22) 82%,
+    transparent);
+}
+[data-theme="dark"] nav.scrolled::after{
+  background:
+    radial-gradient(ellipse 140% 90% at 15% -25%,rgba(255,255,255,.07) 0%,transparent 55%),
+    radial-gradient(ellipse 75% 55% at 88% -8%,rgba(255,255,255,.05) 0%,transparent 50%);
+}
 [data-theme="dark"] #testimonials{background:#0A0806}
 [data-theme="dark"] #testimonials .section-title{color:var(--ink)}
 [data-theme="dark"] .testi-card{background:rgba(255,255,255,.03)}
@@ -1057,6 +1115,26 @@ footer::before{
 </style>
 </head>
 <body>
+
+<!-- LIQUID GLASS SVG FILTER — desplazamiento para refracción -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <filter id="lg-refract" x="-5%" y="-5%" width="110%" height="110%">
+      <!-- Turbulencia animada que simula el movimiento del vidrio líquido -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.006" numOctaves="3" seed="4" result="noise">
+        <animate attributeName="baseFrequency"
+          values="0.012 0.006;0.015 0.009;0.013 0.007;0.011 0.005;0.012 0.006"
+          dur="12s" repeatCount="indefinite"/>
+        <animate attributeName="seed"
+          values="4;7;11;6;4"
+          dur="20s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <!-- Displacement map: distorsiona el gradiente creando refracción -->
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="7"
+        xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
 
 <!-- CURSOR -->
 <div class="cur cur-dot" id="cd"></div>
