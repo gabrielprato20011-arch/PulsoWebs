@@ -468,28 +468,51 @@ footer{
 }
 .benefit-card{box-shadow:0 2px 20px rgba(13,13,13,.04)}
 .benefit-card:hover{box-shadow:0 8px 32px rgba(13,13,13,.08)}
+/* desktop: split layout para que la foto portrait respire */
 .benefits-photo{
   margin-top:3rem;border-radius:16px;overflow:hidden;
-  max-height:320px;position:relative;
+  display:grid;grid-template-columns:1fr 40%;
+  min-height:420px;position:relative;
+  background:var(--surface2);
 }
-.benefits-photo img{width:100%;height:320px;object-fit:cover;object-position:center 30%}
+.benefits-photo img{
+  grid-column:2;grid-row:1;
+  width:100%;height:100%;object-fit:cover;object-position:center 15%;
+  display:block;
+}
 .benefits-photo::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(245,244,242,.92) 0%,transparent 50%);
+  background:linear-gradient(to right,var(--surface2) 45%,transparent 75%);
   pointer-events:none;
+  z-index:1;
 }
 .benefits-photo-caption{
-  position:absolute;left:2.5rem;top:50%;transform:translateY(-50%);
-  z-index:1;max-width:300px;
+  grid-column:1;grid-row:1;
+  position:relative;z-index:2;
+  padding:3rem 3rem 3rem 2.5rem;
+  display:flex;align-items:center;
 }
 .benefits-photo-caption p{
-  font-family:var(--font-display);font-size:1.5rem;font-weight:700;line-height:1.25;
-  color:var(--ink);
+  font-family:var(--font-display);font-size:clamp(1.4rem,2.2vw,2rem);
+  font-weight:700;line-height:1.2;color:var(--ink);
+}
+/* móvil: stacked, la foto arriba */
+@media(max-width:900px){
+  .benefits-photo{
+    grid-template-columns:1fr;grid-template-rows:220px auto;
+    min-height:auto;
+  }
+  .benefits-photo img{grid-column:1;grid-row:1;height:220px;object-position:center 20%}
+  .benefits-photo::after{background:linear-gradient(to bottom,transparent 40%,var(--surface2) 90%)}
+  .benefits-photo-caption{grid-column:1;grid-row:2;padding:1.5rem 1.5rem 2rem}
+  .benefits-photo-caption p{font-size:1.1rem}
+}
+[data-theme="dark"] .benefits-photo{background:var(--surface)}
+[data-theme="dark"] .benefits-photo::after{
+  background:linear-gradient(to right,var(--surface) 45%,transparent 75%);
 }
 @media(max-width:900px){
-  .benefits-photo::after{background:linear-gradient(to bottom,rgba(245,244,242,.95) 0%,transparent 55%)}
-  .benefits-photo-caption{top:1.5rem;left:1.5rem;transform:none}
-  .benefits-photo-caption p{font-size:1.1rem}
+  [data-theme="dark"] .benefits-photo::after{background:linear-gradient(to bottom,transparent 40%,var(--surface) 90%)}
 }
 /* barra de prueba social */
 .benefits-proof{
@@ -1386,7 +1409,7 @@ footer::before{
     </div>
   </div>
   <div class="benefits-photo reveal">
-    <img src="foto-trabajo.png" alt="Equipo PulsoWebs trabajando en un proyecto" loading="lazy" style="object-position:center 20%">
+    <img src="foto-trabajo.png" alt="Equipo PulsoWebs trabajando en un proyecto" loading="lazy">
     <div class="benefits-photo-caption">
       <p>Me obsesiono con que tu web funcione de verdad.</p>
     </div>
