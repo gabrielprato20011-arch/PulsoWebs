@@ -719,7 +719,7 @@ footer::before{
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem}
-  #velox-cat{width:auto;height:60px}
+  #velox-cat{height:120px} .cat-crop{height:68px}
   #benefits,#portfolio,#pricing,#cta-bottom{padding:5rem 1.5rem}
   .benefits-grid,.portfolio-grid,.pricing-grid{grid-template-columns:1fr;gap:1rem}
   .benefits-proof{flex-wrap:wrap}
@@ -1032,7 +1032,7 @@ footer::before{
 /* ── MOBILE (<=600px) ──────────────────────────────────────── */
 @media(max-width:600px){
   nav{padding:1rem 1.2rem}
-  #velox-cat{height:64px}
+  #velox-cat{height:100px} .cat-crop{height:56px}
   .logo{font-size:1.9rem}
   .nav-cta{text-decoration:none;font-size:.7rem;padding:.5rem .9rem;letter-spacing:.05em}
   #hero{padding:5.5rem 1.2rem 4.5rem}
@@ -1146,7 +1146,7 @@ footer::before{
   .hero-stat-num{font-size:1.2rem}
   .hero-stat-label{font-size:.6rem;text-align:right}
   nav{padding:.8rem .9rem}
-  #velox-cat{height:54px}
+  #velox-cat{height:80px} .cat-crop{height:45px}
   .logo{font-size:1.6rem}
   .nav-cta{text-decoration:none;padding:.4rem .7rem;font-size:.62rem}
   .hero-tag{font-size:.62rem;letter-spacing:.1em}
@@ -1180,15 +1180,22 @@ footer::before{
   position:relative;
   display:inline-flex;
   align-items:center;
+  gap:.4rem;
 }
 nav .logo{display:flex;align-items:center}
+.cat-crop{
+  overflow:hidden;
+  height:88px;
+  flex-shrink:0;
+  line-height:0;
+}
 #velox-cat{
-  height:90px;
+  height:155px;
   width:auto;
   cursor:none;
   user-select:none;
   -webkit-user-drag:none;
-  transform-origin:center bottom;
+  transform-origin:center 40%;
 }
 
 </style>
@@ -1228,9 +1235,10 @@ nav .logo{display:flex;align-items:center}
 <!-- NAV -->
 <nav id="nav">
   <div class="logo-wrapper">
-    <a class="logo" href="#">
-      <img id="velox-cat" src="gato.png" alt="PulsoWebs" draggable="false">
-    </a>
+    <a class="logo" href="#"><span>Pulso</span>Webs</a>
+    <div class="cat-crop">
+      <img id="velox-cat" src="gato.png" alt="Gato mascota" draggable="false">
+    </div>
   </div>
   <div class="nav-links">
     <a class="nav-link" href="#portfolio">Portafolio</a>
@@ -2681,22 +2689,35 @@ mm.add({
   'use strict';
 
   const cat     = document.getElementById('velox-cat');
-  const wrapper = cat.parentElement;
+  const wrapper = cat.closest('.logo-wrapper');
   let catState  = 'idle';
 
-  /* ── IDLE: flotación suave ── */
-  const floatTl = gsap.to(cat, {
-    y: -4, duration: 2.2, ease: 'sine.inOut', yoyo: true, repeat: -1
-  });
+  /* ── IDLE: animación de teclear ── */
+  const typeTl = gsap.timeline({repeat: -1});
+  typeTl
+    .to(cat, {y: -2, duration: 0.1, ease: 'power2.out'})
+    .to(cat, {y: 0, duration: 0.08, ease: 'power2.in'})
+    .to(cat, {y: -1.5, rotation: -0.6, duration: 0.1, ease: 'power2.out'})
+    .to(cat, {y: 0, rotation: 0, duration: 0.08, ease: 'power2.in'})
+    .to(cat, {y: -2.5, duration: 0.1, ease: 'power2.out'})
+    .to(cat, {y: 0, duration: 0.08, ease: 'power2.in'})
+    .to(cat, {y: -1, duration: 0.09, ease: 'power2.out'})
+    .to(cat, {y: 0, duration: 0.08, ease: 'power2.in'})
+    /* pausa — piensa */
+    .to(cat, {rotation: 1.8, duration: 0.5, ease: 'sine.inOut'})
+    .to(cat, {rotation: 0, duration: 0.4, ease: 'sine.inOut'})
+    /* segunda ráfaga */
+    .to(cat, {y: -1.5, duration: 0.09, ease: 'power2.out'})
+    .to(cat, {y: 0, duration: 0.08, ease: 'power2.in'})
+    .to(cat, {y: -2, rotation: 0.4, duration: 0.1, ease: 'power2.out'})
+    .to(cat, {y: 0, rotation: 0, duration: 0.08, ease: 'power2.in'})
+    .to(cat, {y: -1, duration: 0.09, ease: 'power2.out'})
+    .to(cat, {y: 0, duration: 0.08, ease: 'power2.in'})
+    /* pausa final */
+    .to(cat, {duration: 0.7});
 
-  /* ── IDLE: balanceo sutil ── */
-  const swayTl = gsap.to(cat, {
-    rotation: 1.5, transformOrigin: 'center bottom',
-    duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1
-  });
-
-  function pauseIdle() { floatTl.pause(); swayTl.pause(); }
-  function resumeIdle() { floatTl.restart(); swayTl.restart(); }
+  function pauseIdle() { typeTl.pause(); }
+  function resumeIdle() { typeTl.restart(); }
 
   /* ── HOVER: ENTER ── */
   wrapper.addEventListener('mouseenter', function () {
